@@ -1,0 +1,49 @@
+{% extends "layouts/adminLayout.html.twig" %}
+
+{% block title %} Admin Panel {% endblock %}
+
+{% block styles %}
+    <link rel="stylesheet" href="{{ asset('editor/themes/default.min.css') }}" />
+{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            {% include 'partials/admin/sidebar.html.twig' %}
+
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">Edit Post</div>
+                    <div class="card-block">
+                        <a href="/admin/posts" title="Back">
+                            <button class="btn btn-warning btn-sm"><i class="fa fa-arrow-left" aria-hidden="true"></i>
+                                Back
+                            </button>
+                        </a>
+                        <br/>
+                        <br/>
+
+                        <form method="POST" action="/admin/posts/create" class="form-horizontal">
+                            {% include '/partials/admin/postForm.html.twig' with {'categories' : categories} %}
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block scripts %}
+    <script src="{{ asset('editor/jquery.sceditor.bbcode.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.editor').sceditor({
+                plugins: 'bbcode',
+                style: '{{ asset('editor/jquery.sceditor.default.min.css') }}'
+            });
+        });
+    </script>
+{% endblock %}

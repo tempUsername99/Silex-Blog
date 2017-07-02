@@ -1,0 +1,26 @@
+{% extends "layouts/adminLayout.html.twig" %}
+
+{% block title %} Admin Panel {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        {% include 'partials/admin/sidebar.html.twig' %}
+
+        <div class="col-md-9">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
+
+                <div class="card-block">
+                    <div class="card-text">
+                        Какая-то информация или еще что-то
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

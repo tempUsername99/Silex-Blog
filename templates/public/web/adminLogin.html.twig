@@ -1,0 +1,49 @@
+{% extends "layouts/layout.html.twig" %}
+
+{% block title %} Admin login page {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="auth">
+
+            <div class="row">
+
+                <div class="col-md-6 offset-md-3">
+                    <h1>Авторизация</h1>
+                    {% if error %}
+                        <div class="alert alert-danger" role="alert">
+                            {{ error }}
+                        </div>
+                    {% endif %}
+
+                   <form action="{{ path('admin_auth') }}" method="POST" class="form-horizontal">
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input type="text" class="form-control" placeholder="Login"  name="_username" {% if(last_username|length > 0) %} value="{{ last_username }}" {% endif %} >
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <input type="password" class="form-control" placeholder="Password" name="_password">
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-sm-12">
+                                <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="alert alert-success" role="alert">
+                        Test data: {login: foo, password: testPassword}
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

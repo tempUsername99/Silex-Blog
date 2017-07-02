@@ -1,0 +1,31 @@
+{% extends "layouts/layout.html.twig" %}
+
+{% block title %} Categories page {% endblock %}
+
+{% block content %}
+
+    <div class="categories">
+        <div class="container">
+            <h1>Категории</h1>
+
+            <ul class="list-group">
+                {% for category in categories %}
+                    <a href="/category/{{ category.getId() }}">
+                        <li class="list-group-item justify-content-between">
+                            {{ category.getName() }}
+                            <span class="badge badge-default badge-pill">{{ category.getPostsCount() }}</span>
+                        </li>
+                    </a>
+
+
+                {% endfor %}
+            </ul>
+
+
+        </div>
+    </div>
+
+
+
+
+{% endblock %}

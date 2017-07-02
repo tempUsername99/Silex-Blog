@@ -1,0 +1,38 @@
+<div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input type="text" name="title" class="form-control" id="exampleInputEmail1" placeholder="Enter title"
+           value="{{ post.getTitle() }}">
+</div>
+
+<div class="form-group">
+    <label for="category">Category</label>
+    <select class="form-control" id="category" name="category">
+        {% for category in categories %}
+            {% if(category.getId() == post.getCategory().getId()) %}
+                <option selected>{{ category.getName() }}</option>
+            {% else %}
+                <option>{{ category.getName() }}</option>
+            {% endif %}
+
+        {% endfor %}
+    </select>
+</div>
+
+<div class="form-group">
+    <label for="description">Description</label>
+    <textarea name="description" class="form-control editor" id="description"
+              rows="10">{{ post.getDescription() }}</textarea>
+</div>
+
+<div class="form-group">
+    <label for="image">Image url</label>
+    <input type="text" name="image" class="form-control" id="image" placeholder="Enter image url" name="image"
+           value="{{ post.getImage() }}">
+</div>
+
+<div class="form-group">
+    <label for="body">Body</label>
+    <textarea name="body" class="form-control editor" id="body" rows="15">{{ post.getBody() }}</textarea>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>

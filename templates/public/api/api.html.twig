@@ -1,0 +1,32 @@
+{% extends "layouts/layout.html.twig" %}
+
+{% block title %} Categories page {% endblock %}
+
+{% block content %}
+
+    <div class="api">
+        <div class="container">
+
+            <div class="docBlock">
+                <h3>api.getCategories</h3>
+                <div class="description">
+                    <p>Возвращает список категорий в виде [Название Категории => id категории]</p>
+                    <p>Пример запроса: <strong>http://blog.loc/api.getCategories</strong> (GET Request)</p>
+                </div>
+            </div>
+
+            <div class="docBlock">
+                <h3>api.getPosts</h3>
+                <div class="description">
+                    <p>Возвращает список статей указанной категории.</p>
+                    <p>Пример запроса: <strong>http://blog.loc/api.getPosts/{categoryId}</strong> (GET Request)</p>
+                    <blockquote class="blockquote">
+                        <p class="mb-0">Получить {categoryid} можно обратившись к <strong>api.getCategories</strong></p>
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}

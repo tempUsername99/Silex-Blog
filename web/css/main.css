@@ -1,0 +1,91 @@
+.nav-container {
+    background-color: #f7f7f7;
+}
+
+.navbar {
+    padding: .5rem 0rem !important;
+}
+
+article {
+    margin-top: 50px;
+}
+
+.bodyHeader {
+    margin-top: 15px;
+}
+
+footer {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.categories {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.categories h1 {
+    margin: 20px 0;
+}
+
+.notFound {
+    margin: 20px 0;
+}
+
+.api {
+    margin: 40px;
+}
+
+.docBlock {
+    margin: 20px;
+}
+
+.description {
+    margin-top: 20px;
+}
+
+.description p {
+    margin-bottom: 5px;
+}
+
+.auth {
+    margin: 50px 0;
+    text-align: center;
+}
+
+.auth h1 {
+    margin: 25px 0;
+}
+
+.auth form {
+    padding: 30px 0;
+}
+
+.navbar {
+    margin-bottom: 20px;
+}
+
+.nav>li {
+    position: relative;
+    display: block;
+}
+
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 10px 15px;
+}
+
+.add-btn {
+    margin-left: 15px;
+}
+
+.dropdown-menu>li>a {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: 400;
+    line-height: 1.42857143;
+    color: #333;
+    white-space: nowrap;
+}

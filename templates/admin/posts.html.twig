@@ -1,0 +1,71 @@
+{% extends "layouts/adminLayout.html.twig" %}
+
+{% block title %} Posts {% endblock %}
+
+{% block content %}
+
+    <div class="container">
+        <div class="row">
+            {% include 'partials/admin/sidebar.html.twig' %}
+
+            <div class="col-md-9">
+                <div class="card">
+                    <div class="card-header">
+                        <span>Posts</span>
+                        <a href="/admin/posts/create" class="btn btn-success btn-sm add-btn" title="Add New Category">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Add New
+                        </a>
+                    </div>
+                    <div class="card-block">
+                        <div class="table-responsive">
+                            <table class="table table-borderless">
+                                <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Category</th>
+                                    <th>Views</th>
+                                    <th>Created</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for item in posts %}
+                                    <tr>
+                                        <td>{{ item.getTitle() }}</td>
+                                        <td>{{ item.getCategory().getName() }}</td>
+                                        <td>{{ item.getViews() }}</td>
+                                        <td>{{ item.getDate()|date('Y-m-d') }}</td>
+                                        <td>
+                                            <a href="{{ '/admin/posts/' ~ item.getId() ~ '/edit' }}"
+                                               title="Edit Client">
+                                                <button class="btn btn-primary btn-sm">
+                                                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                                                    Edit
+                                                </button>
+                                            </a>
+
+                                            <form style="display: inline;"
+                                                  action="{{ '/admin/posts/' ~ item.getId() ~ '/delete' }}"
+                                                  method="post">
+                                                <input name="_method" type="hidden" value="DELETE">
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                        title="Delete Client"
+                                                        onclick="return confirm('Confirm delete?')">
+                                                    <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

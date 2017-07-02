@@ -1,0 +1,52 @@
+<div class="container">
+    {% for post in posts %}
+        <article>
+            <h2><a href="#">{{ post.getTitle() }}</a></h2>
+            <div class="container">
+                <div class="row">
+                    <p>{{ post.getDate()|date('Y-m-d') }}</p>
+                    <p>, Категория:
+                        {% if(post.getCategory is null) %}
+                        нет категории
+                        {% else %}
+                            {{ post.getCategory().getName() }} {% endif %}</p>
+                        {% endif %}
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <img src="{{ post.getImage() }}" alt="{postImage}" class="img-thumbnail">
+                </div>
+                <div class="col-md-7">
+                    <div class="description">
+                        <p>{{ post.getDescription() }}</p>
+                    </div>
+
+                    <div class="views">
+                        Просмотров: <span class="badge badge-pill badge-info badge-views">{{ post.getViews() }}</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="row articleBody" style="display: none">
+                <div class="col-md-10">
+                    <h3 class="bodyHeader">Тело статьи: </h3>
+                    <p>
+                        {{ post.getBody() }}
+                    </p>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-primary showList" style="display: none">Вернуться к списку</button>
+
+        </article>
+    {% endfor %}
+
+    {% if(posts|length == 0) %}
+        <h2 class="notFound">Статей не найдено</h2>
+    {% endif %}
+
+</div>
+
