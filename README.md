@@ -1,2 +1,2 @@
 # Silex-Blog
-blog (silex + mongoDB)
+simple blog on microframework (silex + mongoDB)
